@@ -8,11 +8,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<link rel="stylesheet" href="css/main.css" />
+		<script
+  	src="https://code.jquery.com/jquery-2.2.4.min.js"
+  	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  	crossorigin="anonymous"></script>
 
+		<link id="size-stylesheet" rel="stylesheet" type="text/css" href="css/dektop.css" />
+		<link id="size-stylesheet" rel="stylesheet" type="text/css" href="css/small.css" />
 
-
-     <link rel="shortcut icon" type="image/x-icon" href="chasewri.com/favicon.png">
-     <link rel="icon" type="image/x-icon" href="chasewri.com/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="chasewri.com/favicon.png">
+    <link rel="icon" type="image/x-icon" href="chasewri.com/favicon.png">
 
 	</head>
 	<body class="loading">
@@ -55,7 +60,25 @@
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
 
-    <script
+		<script>
+				function adjustStyle(width) {
+				width = parseInt(width);
+				if (width < 1300) {
+				$("#size-stylesheet").attr("href", "css/small.css");
+				} else {
+				$("#size-stylesheet").attr("href", "css/desktop.css");
+				}
+				}
+
+				$(function() {
+				adjustStyle($(this).width());
+				$(window).resize(function() {
+				adjustStyle($(this).width());
+				});
+				});
+		</script>
+
+    <!-- <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
@@ -66,9 +89,9 @@
         $('body').addClass('no-scroll');
 
 
-    };
+    }
   });
-</script>
+</script> -->
 
 	</body>
 </html>
